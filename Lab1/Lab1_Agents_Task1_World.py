@@ -148,3 +148,7 @@ def normaliseAngle(direction):
     while direction<-math.pi: direction += 2*math.pi
     assert -math.pi<=direction<=math.pi, direction
     return direction
+
+def stopSimulation():
+    vrep.simxStopSimulation(robot.clientID, vrep.simx_opmode_oneshot_wait)
+    vrep.simxFinish(robot.clientID) # close all opened connections
